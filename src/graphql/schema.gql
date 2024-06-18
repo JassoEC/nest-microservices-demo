@@ -18,9 +18,14 @@ type Responses {
   message: String!
 
   """response data"""
-  payload: UserPayload!
+  payload: UserPayload
 }
 
 type Query {
-  GetUser: Responses!
+  GetUser(getUserInput: GetUserInput!): Responses!
+}
+
+input GetUserInput {
+  """user email"""
+  email: String!
 }

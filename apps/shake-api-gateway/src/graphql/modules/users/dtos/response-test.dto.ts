@@ -6,6 +6,6 @@ export class Responses {
   @Field(() => String, { description: 'user name' })
   message: string;
 
-  @Field(() => UserPayload, { description: 'response data' })
+  @Field(() => UserPayload, { description: 'response data', nullable: true })
   payload: UserPayload;
 }
