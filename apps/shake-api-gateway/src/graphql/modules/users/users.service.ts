@@ -3,6 +3,7 @@ import { Responses } from './dtos/response-test.dto';
 import { UserPayload } from './dtos/user-payload.dto';
 import { AppService } from 'apps/shake-api-gateway/src/app.service';
 import { Observable, lastValueFrom } from 'rxjs';
+import { GetUserInput } from './dtos/get-user.input.dto';
 
 @Injectable()
 export class UsersService {
