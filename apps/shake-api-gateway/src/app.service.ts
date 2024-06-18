@@ -12,11 +12,11 @@ export class AppService {
     return 'Start gateway';
   }
 
-  newUser(user: any): Observable<string> {
-    return this.clientA.send('create_user', user);
+  getUser(user: any): Observable<string> {
+    return this.clientA.send('get_user', user);
   }
 
-  ping(): Observable<string> {
-    return this.clientB.send({ cmd: 'ping' }, '');
+  getRoles(): Observable<string> {
+    return this.clientB.send('get_roles', '');
   }
 }

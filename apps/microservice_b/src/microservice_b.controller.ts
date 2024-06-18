@@ -6,9 +6,12 @@ import { MessagePattern } from '@nestjs/microservices';
 export class MicroserviceBController {
   constructor(private readonly microserviceBService: MicroserviceBService) {}
 
-  @MessagePattern({ cmd: 'ping' })
-  handleCreateUser(data: any): string {
+  @MessagePattern('get_roles')
+  handleGetRoles(data: any): {
+    message: string;
+    payload: string[] | null;
+  } {
     console.log(data);
-    return this.microserviceBService.ping();
+    return this.microserviceBService.getRoles();
   }
 }

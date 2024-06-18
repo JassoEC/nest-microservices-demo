@@ -2,9 +2,29 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class MicroserviceAService {
-  createUser(data: any): string {
-    console.log(data);
-    return 'User created success!!';
+  getUser(email: string): {
+    message: string;
+    payload: {
+      userName: string;
+      email: string;
+    } | null;
+  } {
+    console.log({ email });
+    const mockUsers = [
+      {
+        userName: 'userName',
+        email: 'email@domain.com',
+      },
+      {
+        userName: 'userName2',
+        email: 'email2@domain.com',
+      },
+    ];
+    const user = mockUsers.find((el) => el.email === email);
+    return {
+      message: user ? 'fetch user' : 'user not found',
+      payload: user ?? null,
+    };
   }
 
   deleteUser(data: any): string {

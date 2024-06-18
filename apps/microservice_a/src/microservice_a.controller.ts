@@ -6,9 +6,15 @@ import { EventPattern, MessagePattern } from '@nestjs/microservices';
 export class MicroserviceAController {
   constructor(private readonly microserviceAService: MicroserviceAService) {}
 
-  @MessagePattern('create_user')
-  handleCreateUser(data: any): string {
-    return this.microserviceAService.createUser(data);
+  @MessagePattern('get_user')
+  handleGetUser(data: any): {
+    message: string;
+    payload: {
+      userName: string;
+      email: string;
+    } | null;
+  } {
+    return this.microserviceAService.getUser(data);
   }
 
   @MessagePattern('delete_user')
