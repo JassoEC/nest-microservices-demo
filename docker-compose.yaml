@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  rabbitmq-poc-microservices:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq-poc-microservices'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./rabbitmq/data/:/var/lib/rabbitmq/
+      - ./rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - poc_microservices
+
+networks:
+  poc_microservices:
+    driver: bridge

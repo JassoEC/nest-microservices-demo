@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/shake-api-gateway/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/shake-api-gateway/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/shake-api-gateway",
+  "projects": {
+    "shake-api-gateway": {
+      "type": "application",
+      "root": "apps/shake-api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/shake-api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/shake-api-gateway/tsconfig.app.json"
+      }
+    },
+    "microservice_a": {
+      "type": "application",
+      "root": "apps/microservice_a",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservice_a/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservice_a/tsconfig.app.json"
+      }
+    },
+    "microservice_b": {
+      "type": "application",
+      "root": "apps/microservice_b",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservice_b/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservice_b/tsconfig.app.json"
+      }
+    }
+  }
+}
