@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserPayload {
+  """user name"""
+  userName: String!
+
+  """user email"""
+  email: String!
+
+  """user role"""
+  role: String!
+}
+
+type Responses {
+  """user name"""
+  message: String!
+
+  """response data"""
+  payload: UserPayload!
+}
+
+type Query {
+  GetUser: Responses!
+}
