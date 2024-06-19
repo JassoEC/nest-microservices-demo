@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Console } from 'console';
 
 @Injectable()
 export class MicroserviceAService {
@@ -20,6 +21,7 @@ export class MicroserviceAService {
         email: 'email2@domain.com',
       },
     ];
+    console.log('microservice A');
     const user = mockUsers.find((el) => el.email === email);
     return {
       message: user ? 'fetch user' : 'user not found',
