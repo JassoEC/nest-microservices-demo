@@ -6,6 +6,7 @@ import { UsersModule } from './graphql/modules/users/users.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
+import { envs } from 'config';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { join } from 'path';
         name: 'MICROSERVICE_A',
         transport: Transport.RMQ,
         options: {
-          urls: ['amqp://localhost:5672'],
+          urls: [envs.RMQ_HOST],
           queue: 'microservice_a_queue',
           queueOptions: {
             durable: false,
@@ -29,7 +30,7 @@ import { join } from 'path';
         name: 'MICROSERVICE_B',
         transport: Transport.RMQ,
         options: {
-          urls: ['amqp://localhost:5672'],
+          urls: [envs.RMQ_HOST],
           queue: 'microservice_b_queue',
           queueOptions: {
             durable: false,
